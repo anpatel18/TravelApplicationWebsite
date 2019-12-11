@@ -43,6 +43,19 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     	
     	</form>
     	
+    	<br />Reservation List By Name<br />
+	<form action="reservationListByName.jsp" method="POST">
+	
+    	<input type="submit" value="Search"/> 
+    	
+    	</form>
+    	
+    	<br />Reservation List By Flight Number<br />
+	<form action="reservationListByNum.jsp" method="POST">
+	
+    	<input type="submit" value="Search"/> 
+    	
+    	</form>
 	<br />Most Active Flight <br />
 	<form action="mostActiveFlight.jsp" method="POST">
 		
@@ -56,9 +69,6 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     	<input type="submit" value="Search"/> 
     	
     </form>
-    	<form action="flightSearch.jsp">
-		<input type="submit" value = "Search for Flight!">
-	</form>
 	<form action="logout.jsp">	
 		<input type="submit" value="Logout">		
 	</form>
