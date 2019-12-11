@@ -25,7 +25,7 @@
     %>
     <html>
     <body>
-    <h1>Sales Report</h1>
+    <h1>Your Information</h1>
     <table border="1">
     <tr>
     <td>Account Number</td>
@@ -71,5 +71,10 @@
     
 %>
 </table>
+<form action="customerHome.jsp">
+		
+		<input type="submit" value="Home">
+			
+	</form>
 </body>
 </html>

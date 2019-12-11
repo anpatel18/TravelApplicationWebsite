@@ -39,8 +39,16 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
 			<input type="radio" name="order" value="DESC"> Descending<br>
 		<input type="submit" value="Search">
 	</form> <br>
+	
+	<form action="customerHome.jsp">
+		
+		<input type="submit" value="Home">
+			
+	</form>
 	<form action="logout.jsp">	
 		<input type="submit" value="Logout">		
 	</form>
+	
+	
 </body>
 </html>
