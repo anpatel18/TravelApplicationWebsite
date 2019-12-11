@@ -73,7 +73,7 @@ if ((session.getAttribute("user") == null)) {
     		<td><%=rs.getString("flight_id") %></td>
     		<td><%=rs.getString("flight_type") %></td>
     		<td><%=rs.getString("depart_time") %></td>
-    		<td><%=rs.getString("arive_time") %></td>
+    		<td><%=rs.getString("arrive_time") %></td>
     		<td><%=rs.getString("fare_first") %></td>
     		<td><%=rs.getString("fare_economy") %></td>
     		<td><%=rs.getString("airports_departing_airport_id") %></td>

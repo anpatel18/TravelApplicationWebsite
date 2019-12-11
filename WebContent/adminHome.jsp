@@ -14,34 +14,24 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     	response.sendRedirect("login.jsp");
     }
 %>
-
+<br />Customer/Customer Rep Information: <br />
 <br />Add Information <br />
 	<form action="adminAddInfo.jsp" method="POST">
-		
-    	<input type="submit" value="Select"/> 
-    	
-    	</form>
-    	
-    	<br />Edit Information <br />
+     	<input type="submit" value="Select"/> 	
+    </form>
+<br />Edit Information <br />
 	<form action="adminEditInfo.jsp" method="POST">
-		
-    	<input type="submit" value="Select"/> 
-    	
-    	</form>
-    	
-    	<br />Delete Information <br />
+		<input type="submit" value="Select"/> 
+    </form>
+<br />Delete Information <br />
 	<form action="adminDeleteInfo.jsp" method="POST">
-		
-    	<input type="submit" value="Select"/> 
-    	
-    	</form>
-    	
-    	<br />Sales Information for Month <br />
+		<input type="submit" value="Select"/> 
+    </form>
+<br />Sales Information for Month <br />
 	<form action="salesInfoForMonth.jsp" method="POST">
 		Month: <input type="text" name="month"/> <br/>
     	<input type="submit" value="Select"/> 
-    	
-    	</form>
+    </form>
     	
 	<br />Most Active Flight <br />
 	<form action="mostActiveFlight.jsp" method="POST">
