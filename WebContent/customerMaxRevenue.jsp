@@ -10,7 +10,7 @@
 
 <%@ page import ="java.sql.*,javax.servlet.*" %>
 <%
-    String userMonth = request.getParameter("month");  
+    
 
 
     
@@ -25,14 +25,13 @@
     %>
     <html>
     <body>
-    <h1>Sales Report</h1>
+    <h1>Customer: Max Revenue</h1>
     <table border="1">
     <tr>
-    <td>ticket_id</td>
-    <td>round_trip</td>
-    <td>booking_fee</td>
-    <td>issue_date</td>
-    <td>total_fare</td>
+    <td>Customer Name</td>
+    <td>Account Number</td>
+    <td>Total Revenue</td>
+    
     
     </tr>
     <%
@@ -42,17 +41,14 @@
     	
     	con = DriverManager.getConnection(url,"shaanparikh", "Abdabfece!1");
     	st = con.createStatement();
-    	String sql ="CALL salesForMonth(" + userMonth + ");";
+    	String sql ="CALL customerMaxRevenue();";
     	rs = st.executeQuery(sql);
     	while(rs.next()){
     		%>
     		<tr>
-    		<td><%=rs.getString("ticket_id") %></td>
-    		<td><%=rs.getString("round_trip") %></td>
-    		<td><%=rs.getString("booking_fee") %></td>
-    		<td><%=rs.getString("issue_date") %></td>
-    		<td><%=rs.getString("total_fare") %></td>
-    		
+    		<td><%=rs.getString("person_name") %></td>
+    		<td><%=rs.getString("account_num") %></td>
+    		<td><%=rs.getString("total") %></td>
     		</tr>
     		<%
     	

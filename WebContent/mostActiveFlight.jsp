@@ -76,5 +76,10 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     
 %>
 </table>
+<form action="adminHome.jsp">
+		
+		<input type="submit" value="Home">
+			
+	</form>
 </body>
 </html>
