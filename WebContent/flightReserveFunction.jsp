@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <%@ page import ="java.sql.*,javax.servlet.*" %>
 <%
 /* The code below makes sure that only someoone who is logged in can access this webpage.
@@ -18,70 +17,46 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     	response.sendRedirect("login.jsp");
     }
 %>
-<%
-    
-	String airportName = request.getParameter("airport");  
-
+<% 
+	String flightID = request.getParameter("flightID");   
+    String accountNum = request.getParameter("accountNum");
+    String numTickets = request.getParameter("numTickets");
+    String roundTrip = request.getParameter("flightType");
+    String flightSeat = request.getParameter("flightSeat");
     
     //connect to database then look for username password match
     String url = "jdbc:mysql://db1.csi7nfhadku4.us-east-2.rds.amazonaws.com:3306/TravelApplication";
     Class.forName("com.mysql.jdbc.Driver");
-    
-    //initialize 
     Connection con = null;
     Statement st = null;
-    ResultSet rs = null;
-    %>
-    <html>
-    <body>
-    <h1>Flights</h1>
-    <table border="1">
-    <tr>
-    <td>flight_id</td>
-    
-    
-    </tr>
-    <%
-    
-    
-    try{
+    Statement innerst = null;
+    ResultSet rset = null;
+		try{
     	
     	con = DriverManager.getConnection(url,"shaanparikh", "Abdabfece!1");
     	st = con.createStatement();
-    	String sql ="CALL flightsForAirport('" + airportName + "');";
-    	rs = st.executeQuery(sql);
-    	
-    	while(rs.next()){
-    		
-    		%>
-    		<tr>
-    		<td><%=rs.getString("flights_flight_id") %></td>
-    		
-    		
-    		</tr>
-    		<%
-    	
-    	}
+    	String sql ="CALL reserveTicket( " + accountNum +"," + numTickets + ",'" + roundTrip + "','" +  flightSeat + "'," + "CURRENT_DATE() ," + flightID + ");";
+    	rset = st.executeQuery(sql);
     	
     	con.close();
     	}catch(Exception e){
     	out.println("error in checkLoginDetails");
     	e.printStackTrace();
-    	
-    }finally{
-        //close resultsets
-        try { if (rs != null) rs.close(); } catch (Exception e) {};
-    	//close statement
-    	try { if (st != null) st.close(); } catch(Exception e) {};
-    	//close connection to database
-    	try { if (con != null) con.close(); } catch(Exception e) {};
-        }
-    
+    	}
+     finally{
+    //close resultsets
+    try { if (rset != null) rset.close(); } catch (Exception e) {};
+	//close statements
+	try { if (innerst != null) innerst.close(); } catch(Exception e) {};
+	try { if (st != null) st.close(); } catch(Exception e) {};
+	//close connection to database
+	try { if (con != null) con.close(); } catch(Exception e) {};
+    }
+	
 %>
-</table>
-<form action="adminHome.jsp">
+	<form action="success.jsp">
 		
-		<input type="submit" value="Home">
+		<input type="submit" value="Login">
 			
 	</form>
 </body>

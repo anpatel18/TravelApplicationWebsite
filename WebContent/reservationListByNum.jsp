@@ -10,16 +10,7 @@
 
 <%@ page import ="java.sql.*,javax.servlet.*" %>
 <%
-/* The code below makes sure that only someoone who is logged in can access this webpage.
-Please use it for evety page that needs login access.
-*/
-response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
-    if ((session.getAttribute("user") == null)) {
-    	response.sendRedirect("login.jsp");
-    }
-%>
-<%
-    String userMonth = request.getParameter("month");  
+    
 
 
     
@@ -34,14 +25,13 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     %>
     <html>
     <body>
-    <h1>Sales Report</h1>
+    <h1>Reservations</h1>
     <table border="1">
     <tr>
-    <td>ticket_id</td>
-    <td>round_trip</td>
-    <td>booking_fee</td>
-    <td>issue_date</td>
-    <td>total_fare</td>
+    <td>Flight Number</td>
+    <td>Account Number</td>
+    <td>Ticket ID</td>
+    <td>Reservation ID</td>
     
     </tr>
     <%
@@ -51,16 +41,15 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     	
     	con = DriverManager.getConnection(url,"shaanparikh", "Abdabfece!1");
     	st = con.createStatement();
-    	String sql ="CALL salesForMonth(" + userMonth + ");";
+    	String sql ="CALL listReservationsByNum();";
     	rs = st.executeQuery(sql);
     	while(rs.next()){
     		%>
     		<tr>
+    		<td><%=rs.getString("flight_id") %></td>
+    		<td><%=rs.getString("account_num") %></td>
     		<td><%=rs.getString("ticket_id") %></td>
-    		<td><%=rs.getString("round_trip") %></td>
-    		<td><%=rs.getString("booking_fee") %></td>
-    		<td><%=rs.getString("issue_date") %></td>
-    		<td><%=rs.getString("total_fare") %></td>
+    		<td><%=rs.getString("reservation_id") %></td>
     		
     		</tr>
     		<%
@@ -82,12 +71,10 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     
 %>
 </table>
-
 <form action="adminHome.jsp">
 		
 		<input type="submit" value="Home">
 			
 	</form>
 </body>
-
 </html>
