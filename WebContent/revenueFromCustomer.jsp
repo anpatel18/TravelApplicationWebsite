@@ -10,7 +10,7 @@
 
 <%@ page import ="java.sql.*,javax.servlet.*" %>
 <%
-    
+    String customerID = request.getParameter("customerID");  
 
 
     
@@ -25,13 +25,14 @@
     %>
     <html>
     <body>
-    <h1>Customer: Max Revenue</h1>
+    <h1>Customer : Revenue Generated</h1>
     <table border="1">
     <tr>
-    <td>Customer Name</td>
+    <td>Name</td>
     <td>Account Number</td>
-    <td>Total Revenue</td>
-    
+    <td>Ticket ID</td>
+    <td>Total Fare</td>
+  
     
     </tr>
     <%
@@ -41,14 +42,17 @@
     	
     	con = DriverManager.getConnection(url,"shaanparikh", "Abdabfece!1");
     	st = con.createStatement();
-    	String sql ="CALL customerMaxRevenue();";
+    	String sql ="CALL revenueFromCustomer(" + customerID + ");";
     	rs = st.executeQuery(sql);
     	while(rs.next()){
     		%>
     		<tr>
     		<td><%=rs.getString("person_name") %></td>
     		<td><%=rs.getString("account_num") %></td>
-    		<td><%=rs.getString("total") %></td>
+    		<td><%=rs.getString("ticket_id") %></td>
+    		<td><%=rs.getString("total_fare") %></td>
+    	
+    		
     		</tr>
     		<%
     	
@@ -69,5 +73,10 @@
     
 %>
 </table>
+<form action="summaryListingRevenue.jsp">
+		
+		<input type="submit" value="Back">
+			
+	</form>
 </body>
 </html>

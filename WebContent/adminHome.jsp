@@ -32,7 +32,6 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
 		Month: <input type="text" name="month"/> <br/>
     	<input type="submit" value="Select"/> 
     </form>
-
     	<br />Reservation List By Name<br />
 	<form action="reservationListByName.jsp" method="POST">
 	
@@ -42,6 +41,20 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     	
     	<br />Reservation List By Flight Number<br />
 	<form action="reservationListByNum.jsp" method="POST">
+	
+    	<input type="submit" value="Search"/> 
+    	
+    	</form>
+    	
+    	<br />Summary Listing of Revenue<br />
+	<form action="summaryListingRevenue.jsp" method="POST">
+	
+    	<input type="submit" value="Search"/> 
+    	
+    	</form>
+    	
+    	<br />Customer : Most Revenue<br />
+	<form action="customerMaxRevenue.jsp" method="POST">
 	
     	<input type="submit" value="Search"/> 
     	

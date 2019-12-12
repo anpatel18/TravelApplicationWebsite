@@ -15,7 +15,22 @@
     	</form>
     	
 	<br />Edit Reservations<br />
+
+	
 	<form action="editReservationsRep.jsp" method="POST">
+	
+		Ticket ID: <input type="text" name="ticketID"/> <br/>
+		
+		<b>Change Flight Type:</b> <br>
+			<input type="radio" name="flightType" value="OneWay"> One-way<br>
+			<input type="radio" name="flightType" value="Round trip"> Round trip<br>
+			
+		<b>Change Seat Type:</b> <br>
+			<input type="radio" name="seatType" value="Economy"> Economy<br>
+			<input type="radio" name="seatType" value="First"> First/Business<br>
+			
+		Number of Tickets: <input type="text" name="numTickets"/> <br/>
+
     	<input type="submit" value="Select"/>	
     	</form>
     	<br/>
@@ -26,6 +41,7 @@
     	
     	</form>
     	<br/>
+
     Add Flight, Aircraft or Aircraft Information
     <form action="addFAAInfo.jsp" method="post">
     	<input type="submit" value="Add">
@@ -38,11 +54,14 @@
     <form action="editFAAInfo.jsp" method="post">
     	<input type="submit" value="Edit">
     </form><br>
+
     	<form action=listReservationsRep.jsp method="POST">
 		View Waiting List
 		<br/>
 		Flight ID: <input type="text" name="flightID"/> <br/>
+
     	<input type="submit" value="Select"/> 
+
     	
     	</form>
     	
