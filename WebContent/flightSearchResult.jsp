@@ -57,6 +57,7 @@ if ((session.getAttribute("user") == null)) {
     <td>Departing Airport</td>
     <td>Destination Airport</td>
     <td>Airline ID</td>
+    <td>Airline Capacity</td>
     </tr>
     <%
     try{
@@ -73,12 +74,13 @@ if ((session.getAttribute("user") == null)) {
     		<td><%=rs.getString("flight_id") %></td>
     		<td><%=rs.getString("flight_type") %></td>
     		<td><%=rs.getString("depart_time") %></td>
-    		<td><%=rs.getString("arive_time") %></td>
+    		<td><%=rs.getString("arrive_time") %></td>
     		<td><%=rs.getString("fare_first") %></td>
     		<td><%=rs.getString("fare_economy") %></td>
     		<td><%=rs.getString("airports_departing_airport_id") %></td>
     		<td><%=rs.getString("airports_destination_airport_id") %></td>
     		<td><%=rs.getString("airline_id") %></td>
+    		<td><%=rs.getString("capacity") %></td>
     		<%-- <td><a href="update.jsp?id=<%=rs.getString("flight_id")%>">update</a></td> --%>
     		</tr>
     		<%
@@ -96,6 +98,10 @@ if ((session.getAttribute("user") == null)) {
 			%>
 
 </table>
+	<br>
+	<form action="WaitingList.jsp">
+		<input type="submit" value = "Enter Waiting List">
+	</form>
 	<br>
 	<form action="reserveFlight.jsp">
 		<input type="submit" value = "Reserve a Flight!">

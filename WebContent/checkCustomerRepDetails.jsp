@@ -28,7 +28,7 @@
     	if (rs.next()) {
     		session = request.getSession();
         	session.setAttribute("user", userid); // the username will be stored in the session
-        	response.sendRedirect("success.jsp");
+        	response.sendRedirect("customerRepHome.jsp");
     	} 
 		else 
 		{
