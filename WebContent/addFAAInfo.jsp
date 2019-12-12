@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Information</title>
+</head>
+<body>
+<%@ page import ="java.sql.*,javax.servlet.*" %>
+<%
+response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
+    if ((session.getAttribute("user") == null)) {
+    	response.sendRedirect("login.jsp");
+    }
+%>
+Add Flight Information:<br>
+<form action = "addFlight.jsp">
+	<br>Flight Type:<input type=text placeholder = "Flight Type" name = "flight_type"><br><br>
+	<br>Departing Time:<input type=text placeholder = "yyyy-mm-dd hh:mm:ss" name = "d_time"><br><br>
+	<br>Arrival Time:<input type=text placeholder = "yyyy-mm-dd hh:mm:ss" name = "a_time"><br><br>
+	<br>First Class Fare:<input type=text  name = "first_fare"><br><br>
+	<br>Economy Fare:<input type=text name = "economy_fare"><br><br>
+	<br>Capacity:<input type=text name = "capacity"><br><br>
+	<br>Destination:<input type=text  name = "dest"><br><br>
+	<br>Departing:<input type=text  name = "dep"><br><br>
+	<input type=submit value="Add Flight">
+</form> <br>
+
+
+
+Add Aircraft Information:<br>
+<form action = "addAircraft.jsp">
+	<br>Aircraft ID:<input type="text" placeholder="Aircraft ID" name="aircraft_id">
+	<br>Airline ID:<input type="text" placeholder="2 Letter ID" name="airline_id">
+	<input type=submit value="Add Aircraft">
+</form><br>
+Add Airport Information:<br>
+<form action = "addAirport.jsp">
+	<br>Airport ID:<input type="text" placeholder="3 Letter ID" name="airport_id">
+	<input type=submit value="Add Airport">
+</form>
+<form action="customerRepHome.jsp">
+		<input type="submit" value="Home Page">
+</form>
+<form action="logout.jsp">	
+	<input type="submit" value="Logout">		
+</form>
+</body>
+</html>

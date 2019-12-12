@@ -14,33 +14,50 @@
     	<input type="submit" value="Select"/> 
     	
     	</form>
-<br />Search Flights<br />
-	<form action="flightSearchResult.jsp" method="POST">
+	<br />Search Flights<br />
+	<form action="flightSearch.jsp" method="POST">
 	
-		//add fields 
+		
 		
     	<input type="submit" value="Select"/> 
     	
     	
     	</form>
+    	<br/>
         
-
+     <form action=reserveFlight.jsp method="POST">
+		Make Reservation: 
+    	<input type="submit" value="Select"/> 
     	
+    	</form>
+    	<br/>
     	
+    	<form action=cancelFlight.jsp method="POST">
+		Cancel Reservation: (FLIGHT MUST BE FIRST/BUSINESS CLASS)<br/>
+		<br/>
+		Ticket ID: <input type="text" name="ticketID"/> <br/>
+    	<input type="submit" value="Select"/> 
+    	
+    	</form>
+    	
+    	<br/>
 	<br />View Past Reservations<br />
 	<form action="viewPastReservations.jsp" method="POST">
 		Account Number: <input type="text" name="account_number"/> <br/>
     	<input type="submit" value="Search"/> 
     	
     	</form>
-    	
+    	<br/>
     	<br />View Upcoming Reservations<br />
 	<form action="viewUpcomingReservations.jsp" method="POST">
 		Account Number: <input type="text" name="account_number"/> <br/>
     	<input type="submit" value="Search"/> 
-    	
-    	</form>
-    	
+    		
+	</form>
+    
+    	<form action="logout.jsp">	
+		<input type="submit" value="Logout">		
+	</form>
     	
 
 

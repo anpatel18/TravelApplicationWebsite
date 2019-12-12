@@ -73,5 +73,10 @@
     
 %>
 </table>
+<form action="customerHome.jsp">
+		
+		<input type="submit" value="Home">
+			
+	</form>
 </body>
 </html>

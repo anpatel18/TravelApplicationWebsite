@@ -10,23 +10,14 @@
 
 <%@ page import ="java.sql.*,javax.servlet.*" %>
 <%
-/* The code below makes sure that only someoone who is logged in can access this webpage.
-Please use it for evety page that needs login access.
-*/
-response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
-    if ((session.getAttribute("user") == null)) {
-    	response.sendRedirect("login.jsp");
-    }
-%>
-<%
-    String userMonth = request.getParameter("month");  
+    
 
 
     
     //connect to database then look for username password match
     String url = "jdbc:mysql://db1.csi7nfhadku4.us-east-2.rds.amazonaws.com:3306/TravelApplication";
     Class.forName("com.mysql.jdbc.Driver");
-    
+    String flightID = request.getParameter("flightID");  
     //initialize 
     Connection con = null;
     Statement st = null;
@@ -34,14 +25,14 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     %>
     <html>
     <body>
-    <h1>Sales Report</h1>
+    <h1>Waiting List</h1>
     <table border="1">
     <tr>
-    <td>ticket_id</td>
-    <td>round_trip</td>
-    <td>booking_fee</td>
-    <td>issue_date</td>
-    <td>total_fare</td>
+    <td>Passenger Name</td>
+    <td>Flight ID</td>
+    <td>Waiting List ID</td>
+    <td>Account Number</td>
+   
     
     </tr>
     <%
@@ -51,16 +42,15 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     	
     	con = DriverManager.getConnection(url,"shaanparikh", "Abdabfece!1");
     	st = con.createStatement();
-    	String sql ="CALL salesForMonth(" + userMonth + ");";
+    	String sql ="CALL viewWaitingListByFlightID(" + flightID + ");" ;
     	rs = st.executeQuery(sql);
     	while(rs.next()){
     		%>
     		<tr>
-    		<td><%=rs.getString("ticket_id") %></td>
-    		<td><%=rs.getString("round_trip") %></td>
-    		<td><%=rs.getString("booking_fee") %></td>
-    		<td><%=rs.getString("issue_date") %></td>
-    		<td><%=rs.getString("total_fare") %></td>
+    		<td><%=rs.getString("person_name") %></td>
+    		<td><%=rs.getString("flight_id") %></td>
+    		<td><%=rs.getString("waiting_list_id") %></td>
+    		<td><%=rs.getString("account_num") %></td>
     		
     		</tr>
     		<%
@@ -82,12 +72,10 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
     
 %>
 </table>
-
-<form action="adminHome.jsp">
+<form action="customerRepHome.jsp">
 		
 		<input type="submit" value="Home">
 			
 	</form>
 </body>
-
 </html>
