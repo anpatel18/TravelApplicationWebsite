@@ -32,7 +32,6 @@ response.setHeader("Cache-Control", "no-chache, no-store, must-revalidate");
 		Month: <input type="text" name="month"/> <br/>
     	<input type="submit" value="Select"/> 
     </form>
-    	
     	<br />Reservation List By Name<br />
 	<form action="reservationListByName.jsp" method="POST">
 	
